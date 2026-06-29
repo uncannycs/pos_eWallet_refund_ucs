@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_ewallet_refund_ucs.OrderDisplay" t-inherit="point_of_sale.OrderDisplay" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('order-summary')]" position="inside">
+            <t t-set="ewallet_balance" t-value="getEWalletBalanceUCS()"/>
+            <t t-if="ewallet_balance and ewallet_balance !== ''">
+                <div class="ewallet-balance-display-ucs fs-6 mt-1 pb-1" style="font-weight: bold; color: #017e84; border-top: 1px solid #e6e6e6;">
+                    eWallet Balance: <t t-esc="ewallet_balance"/>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>
